@@ -1,10 +1,5 @@
-import { rejects } from "assert";
 import { v2 as cloudinary } from "cloudinary"
-import { error } from "console";
-import fs from "fs"
-import { resolve } from "path";
 import { Readable } from "stream";
-import { buffer } from "stream/consumers";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -53,7 +48,7 @@ const uploadCloudinary = async (files) => {
 
     } else if (Array.isArray(files)) {
         const uploadPromises = files.map(async (fileBuffer) => {
-            
+
             if (Buffer.isBuffer(fileBuffer)) {
                 return await uploadBufferToCloudinary(fileBuffer)
             } else {
