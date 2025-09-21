@@ -198,7 +198,8 @@ const loginUser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'none'
     }
 
     return res
@@ -270,7 +271,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'none'
     }
 
     return res
@@ -493,6 +495,7 @@ export {
 // I am registeruser (req,res,next)=>{
 //         Promise.resolve(requestHandler(req,res,next)).catch((err)=> next(err))
 //     }
+
 
 
 
