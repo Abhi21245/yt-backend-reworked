@@ -11,7 +11,11 @@ app.use(cros({
     // origin: 'http://localhost:5173',
     origin: process.env.CROS_ORIGIN,
     credentials : true
+    
 }))
+
+
+console.log("This is cross origin ",process.env.CROS_ORIGIN)
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
